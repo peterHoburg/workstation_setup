@@ -1,0 +1,29 @@
+- name: Install packages
+  apt: name={{item}}
+    with_items:
+      - git
+      - build-essential
+      - python3-dev
+      - libdbus-glib-1-dev
+      - libgirepository1.0-dev
+      - libcairo2-dev
+      - python3-venv
+      - python3-wheel
+      - tmux
+      - vim
+      - zsh
+      - stress
+      - s-tui
+      - snapd
+      - flatpak
+      - gnome-tweaks
+      - google-cloud-sdk
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+      - htop
+      - alacritty
+      - direnv
+
