@@ -1,6 +1,6 @@
 - name: Install packages
-  apt: name={{item}}
-    with_items:
+  package:
+    name:
       - git
       - build-essential
       - python3-dev
@@ -26,4 +26,20 @@
       - htop
       - alacritty
       - direnv
+    state: latest
 
+- name: Add the flathub flatpak repository remote to the user installation
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+- name: Install the qBittorrent flatpak
+  community.general.flatpak:
+    name:  org.qbittorrent.qBittorrent
+    state: present
+
+- name: Snaps
+  community.general.snap:
+    name:
+      - superproductivity

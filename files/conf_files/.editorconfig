@@ -1,0 +1,29 @@
+root = true
+
+[*]
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.sh]
+indent_style = space
+indent_size = 2
+
+# 4 space indentation for python
+[*.py]
+indent_style = space
+indent_size = 4
+
+# https://github.com/christopheradams/elixir_style_guide
+[*.{ex,eex}]
+indent_style = space
+indent_size = 2
+
+# 2 spaces for ruby https://github.com/bbatsov/ruby-style-guide
+[*.rb]
+indent_style = space
+indent_size = 2
+
+# 2 spaces
+[*.{js,coffee,yml,html,css,sass,scss,yaml}]
+indent_style = space
+indent_size = 2

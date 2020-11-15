@@ -1,0 +1,2 @@
+- name: Install community collections
+  command: ansible-galaxy collection install -r requirements.yml

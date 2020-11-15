@@ -1,0 +1,5 @@
+- name: Create a symbolic link
+  file:
+    src: $PWD/files/conf_files
+    dest: /home/peter/dir_move_test
+    state: link
