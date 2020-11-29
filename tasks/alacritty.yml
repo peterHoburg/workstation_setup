@@ -1,0 +1,34 @@
+#- name: Install alacritty
+#  command: ~/.cargo/bin/cargo install alacritty
+
+- name: Clone alactitty from GitHub
+  become: yes
+  become_user: peter
+  git:
+    repo: 'https://github.com/alacritty/alacritty.git'
+    dest: /home/peter/alacritty
+
+- name: Alacritty Terminfo
+  become: yes
+  become_user: root
+  shell: tic -xe alacritty,alacritty-direct /home/peter/alacritty/extra/alacritty.info
+
+- name: Copy Alacritty.svg
+  become: true
+  become_user: root
+  copy:
+    src: /home/peter/alacritty/extra/logo/alacritty-term.svg
+    dest: /usr/share/pixmaps/Alacritty.svg
+    owner: root
+    group: root
+    mode: '0400'
+
+- name: Alacritty.desktop
+  become: yes
+  become_user: root
+  shell: desktop-file-install /home/peter/alacritty/extra/linux/Alacritty.desktop
+
+- name: Update desktop database
+  become: yes
+  become_user: root
+  shell: update-desktop-database

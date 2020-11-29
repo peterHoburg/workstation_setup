@@ -47,8 +47,10 @@
   community.general.snap:
     name:
       - superproductivity
+
 - name: Snaps classic
   community.general.snap:
     name:
       - google-cloud-sdk
+      - kubectl
     classic: yes
