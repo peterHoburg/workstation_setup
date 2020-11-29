@@ -1,5 +1,35 @@
-- name: Create a symbolic link
+- name: Hardlink .alacritty.yml
   file:
-    src: $PWD/files/conf_files
-    dest: /home/peter/dir_move_test
-    state: link
+    src: $PWD/files/conf_files/.alacritty.yml
+    dest: /home/peter/.alacritty.yml
+    state: hard
+- name: Hardlink .bashrc
+  file:
+    src: $PWD/files/conf_files/.bashrc
+    dest: /home/peter/.bashrc
+    state: hard
+- name: Hardlink .editorconfig
+  file:
+    src: $PWD/files/conf_files/.editorconfig
+    dest: /home/peter/.editorconfig
+    state: hard
+
+- name: Hardlink .tmux.conf
+  file:
+    src: $PWD/files/conf_files/.tmux.conf
+    dest: /home/peter/.tmux.conf
+    state: hard
+
+- name: Hardlink .zshrc
+  file:
+    src: $PWD/files/conf_files/.zshrc
+    dest: /home/peter/.zshrc
+    state: hard
+
+- name: Hardlink topgrade.toml
+  file:
+    src: $PWD/files/conf_files/topgrade.toml
+    dest: /home/peter/topgrade.toml
+    state: hard
+
+

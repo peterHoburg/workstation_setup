@@ -1,0 +1,11 @@
+- name: Make font dir
+  file:
+    path: /home/peter/Downloads/fonts
+    state: directory
+
+- name: Download jetbrains fonts
+  unarchive:
+    src: https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip
+    dest: /home/peter/Downloads/fonts
+    remote_src: yes
+

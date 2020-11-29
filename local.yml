@@ -1,16 +1,22 @@
 - hosts: localhost
-  become: true
-#  pre_tasks:
-#    - name: update repositories
-#      apt: update_cache=yes
-#      changed_when: False
+  become_user: peter
+  pre_tasks:
+    - name: update repositories
+      become_user: root
+      apt: update_cache=yes
+      changed_when: False
   collections:
     - community.general.flatpak
 
   tasks:
 #    - include: ./tasks/collections.yml
+#    - include: ./tasks/copy_configs.yml
+#    - include: ./tasks/packages.yml
+    - include: ./tasks/jetbrains_toolbox.yml
+#    - include: ./tasks/lenovo_throttled.yml
+#    - include: ./tasks/fonts.yml
+#    - include: ./tasks/install_rust.yml
+    - include: ./tasks/generate_ssh_keys.yml
+
 #    - include: ./tasks/users.yml
 #    - include: ./tasks/cron.yml
-    - include: ./tasks/copy_configs.yml
-#    - include: ./tasks/packages.yml
-    - include: ./tasks/install_rust.yml

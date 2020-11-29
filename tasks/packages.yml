@@ -17,7 +17,6 @@
       - snapd
       - flatpak
       - gnome-tweaks
-      - google-cloud-sdk
       - apt-transport-https
       - ca-certificates
       - curl
@@ -43,3 +42,8 @@
   community.general.snap:
     name:
       - superproductivity
+- name: Snaps classic
+  community.general.snap:
+    name:
+      - google-cloud-sdk
+    classic: yes

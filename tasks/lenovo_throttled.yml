@@ -1,0 +1,26 @@
+- name: Clone throttled from GitHub
+  git:
+    repo: 'https://github.com/erpalma/throttled.git'
+    dest: /home/peter/Documents/throttled
+
+- name: Install Throttled
+  shell: /home/peter/Documents/throttled/install.sh
+  become_user: root
+
+- name: stop thermald.service
+  shell: systemctl stop thermald.service
+  become_user: root
+
+- name: disable thermald.service
+  shell: systemctl disable thermald.service
+  become_user: root
+
+- name: mask thermald.service
+  shell: systemctl mask thermald.service
+  become_user: root
+
+- name: Install packages
+  package:
+    name:
+      - thermald
+    state: absent
