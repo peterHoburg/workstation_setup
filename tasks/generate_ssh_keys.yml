@@ -1,0 +1,13 @@
+- name: Hardlink ssh config
+  file:
+    src: $PWD/files/ssh/config
+    dest: /home/peter/.ssh/config
+    state: hard
+  become_user: peter
+
+- name: Hardlink ssh config_personal
+  file:
+    src: $PWD/files/ssh/config_personal
+    dest: /home/peter/.ssh/config_personal
+    state: hard
+  become_user: peter

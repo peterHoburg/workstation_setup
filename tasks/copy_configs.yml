@@ -3,33 +3,41 @@
     src: $PWD/files/conf_files/.alacritty.yml
     dest: /home/peter/.alacritty.yml
     state: hard
+  become_user: peter
+
 - name: Hardlink .bashrc
   file:
     src: $PWD/files/conf_files/.bashrc
     dest: /home/peter/.bashrc
     state: hard
+  become_user: peter
+
 - name: Hardlink .editorconfig
   file:
     src: $PWD/files/conf_files/.editorconfig
     dest: /home/peter/.editorconfig
     state: hard
+  become_user: peter
 
 - name: Hardlink .tmux.conf
   file:
     src: $PWD/files/conf_files/.tmux.conf
     dest: /home/peter/.tmux.conf
     state: hard
+  become_user: peter
 
 - name: Hardlink .zshrc
+  become: yes
+  become_user: peter
   file:
     src: $PWD/files/conf_files/.zshrc
     dest: /home/peter/.zshrc
     state: hard
+    force: yes
 
 - name: Hardlink topgrade.toml
   file:
     src: $PWD/files/conf_files/topgrade.toml
     dest: /home/peter/topgrade.toml
     state: hard
-
-
+  become_user: peter

@@ -1,0 +1,17 @@
+- name: Download oh_my_zsh installer
+  get_url:
+    url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/ohmyzsh.sh
+    mode: 0700
+    owner: peter
+  become_user: peter
+
+- name: Install ohmyzsh
+  become: yes
+  become_user: peter
+  shell: sh -c /tmp/ohmyzsh.sh
+
+- name: Install ohmyzsh
+  become: yes
+  become_user: root
+  shell: chsh -s /usr/bin/zsh

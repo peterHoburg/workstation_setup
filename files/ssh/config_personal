@@ -1,0 +1,6 @@
+Host *github.com
+  User peterHoburg
+  IdentityFile ~/.ssh/github
+Host *jetbrains.space
+  User peter
+  IdentityFile ~/.ssh/space
