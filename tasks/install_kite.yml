@@ -1,0 +1,8 @@
+- name: Download Kite Installer
+  get_url:
+    url: https://linux.kite.com/dls/linux/current
+    dest: ~/Downloads/kite_installer.sh
+    mode: 0700
+
+- name: Install Rust
+  command: bash -c /tmp/kite_installer.sh

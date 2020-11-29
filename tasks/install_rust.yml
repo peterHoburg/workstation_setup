@@ -8,3 +8,6 @@
 
 - name: Install Topgrade
   command: ~/.cargo/bin/cargo install topgrade
+
+- name: Install alacritty
+  command: ~/.cargo/bin/cargo install alacritty

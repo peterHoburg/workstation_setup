@@ -7,5 +7,8 @@
 * Generate SSH keys
     * ssh-keygen -f /home/peter/.ssh/github
     * ssh-keygen -f /home/peter/.ssh/space
+* Install Kite
+    * run bash -c ~/Downloads/kite_installer.sh
+    * Login
 
 
