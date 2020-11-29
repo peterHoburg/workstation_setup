@@ -18,10 +18,10 @@
     - include: ./tasks/jetbrains_toolbox.yml
     - include: ./tasks/lenovo_throttled.yml
     - include: ./tasks/fonts.yml
-    - include: ./tasks/install_rust.yml
     - include: ./tasks/generate_ssh_keys.yml
     - include: ./tasks/add_python_fingerprint.yml
     - include: ./tasks/generate_ssh_keys.yml
+    - include: ./tasks/install_rust.yml
 
 #    - include: ./tasks/users.yml
 #    - include: ./tasks/cron.yml
