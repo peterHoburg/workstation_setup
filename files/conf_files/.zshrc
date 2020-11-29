@@ -40,7 +40,13 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin:/usr/
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-alias ls='ls -a'
+alias ls='ls --color=auto -a'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
 alias t='thyme'
 alias bam='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf \;'
 alias dev='~/Documents/dev'

@@ -1,24 +1,27 @@
 - hosts: localhost
+  become: yes
+  become_user: peter
   pre_tasks:
     - name: update repositories
+      become: yes
       become_user: root
       apt: update_cache=yes
       changed_when: False
   collections:
     - community.general.flatpak
-  become_user: peter
 
   tasks:
-#    - include: ./tasks/collections.yml
-#    - include: ./tasks/packages.yml
-#    - include: ./tasks/install_oh_my_zsh.yml
+    - include: ./tasks/collections.yml
+    - include: ./tasks/packages.yml
+    - include: ./tasks/install_oh_my_zsh.yml
     - include: ./tasks/copy_configs.yml
-#    - include: ./tasks/jetbrains_toolbox.yml
-#    - include: ./tasks/lenovo_throttled.yml
-#    - include: ./tasks/fonts.yml
-#    - include: ./tasks/install_rust.yml
-#    - include: ./tasks/generate_ssh_keys.yml
-#    - include: ./tasks/add_python_fingerprint.yml
-#    - include: ./tasks/generate_ssh_keys.yml
+    - include: ./tasks/jetbrains_toolbox.yml
+    - include: ./tasks/lenovo_throttled.yml
+    - include: ./tasks/fonts.yml
+    - include: ./tasks/install_rust.yml
+    - include: ./tasks/generate_ssh_keys.yml
+    - include: ./tasks/add_python_fingerprint.yml
+    - include: ./tasks/generate_ssh_keys.yml
+
 #    - include: ./tasks/users.yml
 #    - include: ./tasks/cron.yml

@@ -9,9 +9,24 @@
 - name: Install ohmyzsh
   become: yes
   become_user: peter
-  shell: sh -c /tmp/ohmyzsh.sh
+  shell: sh -c /tmp/ohmyzsh.sh --unattended
 
-- name: Install ohmyzsh
+
+- name: Change Default Shell to ZSH
   become: yes
   become_user: root
   shell: chsh -s /usr/bin/zsh
+
+- name: Clone zsh-autosuggestions from GitHub
+  become: yes
+  become_user: peter
+  git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+- name: Clone zsh-syntax-highlighting from GitHub
+  become: yes
+  become_user: peter
+  git:
+    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
