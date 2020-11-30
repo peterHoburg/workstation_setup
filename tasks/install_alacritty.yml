@@ -17,11 +17,11 @@
   become: true
   become_user: root
   copy:
-    src: "/home/{{ main_user }}/alacritty/extra/logo/compat/alacritty-term+scanlines.png"
-    dest: /usr/share/pixmaps/Alacritty.png
+    src: "/home/{{ main_user }}/alacritty/extra/logo/alacritty-term.svg"
+    dest: /usr/share/pixmaps/Alacritty.svg
     owner: root
     group: root
-    mode: '0400'
+    mode: '0644'
 
 - name: Alacritty.desktop
   become: yes

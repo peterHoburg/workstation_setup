@@ -13,19 +13,19 @@
     - community.general.flatpak
 
   tasks:
-#    - include: ./tasks/collections.yml
-#    - include: ./tasks/packages.yml
-#    - include: ./tasks/lenovo_throttled.yml
-#    - include: ./tasks/install_oh_my_zsh.yml
+    - include: ./tasks/collections.yml
+    - include: ./tasks/packages.yml
+    - include: ./tasks/lenovo_throttled.yml
+    - include: ./tasks/install_oh_my_zsh.yml
     - include: ./tasks/copy_configs.yml
-#    - include: ./tasks/jetbrains_toolbox.yml
-#    - include: ./tasks/fonts.yml
-#    - include: ./tasks/ssh_conf_files.yml
-#    - include: ./tasks/add_python_fingerprint.yml
-#    - include: ./tasks/install_rust.yml
-#    - include: ./tasks/install_topgrade.yml
-#    - include: ./tasks/install_alacritty.yml
-#    - include: ./tasks/install_kite.yml
+    - include: ./tasks/jetbrains_toolbox.yml
+    - include: ./tasks/fonts.yml
+    - include: ./tasks/ssh_conf_files.yml
+    - include: ./tasks/add_python_fingerprint.yml
+    - include: ./tasks/install_rust.yml
+    - include: ./tasks/install_topgrade.yml
+    - include: ./tasks/install_alacritty.yml
+    - include: ./tasks/install_kite.yml
 
 #    - include: ./tasks/users.yml
 #    - include: ./tasks/cron.yml
