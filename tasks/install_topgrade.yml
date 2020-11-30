@@ -1,0 +1,2 @@
+- name: Install Topgrade
+  command: ~/.cargo/bin/cargo install topgrade

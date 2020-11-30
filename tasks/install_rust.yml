@@ -5,6 +5,3 @@
 
 - name: Install Rust
   command: sh /tmp/rust_install.sh -y
-
-- name: Install Topgrade
-  command: ~/.cargo/bin/cargo install topgrade
