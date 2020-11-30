@@ -1,5 +1,5 @@
 - name: Download Kite Installer
   get_url:
     url: https://linux.kite.com/dls/linux/current
-    dest: ~/Downloads/kite_installer.sh
+    dest: /home/{{ main_user }}/Downloads/kite_installer.sh
     mode: 0700

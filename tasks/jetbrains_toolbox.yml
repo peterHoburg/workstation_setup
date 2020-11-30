@@ -1,6 +1,6 @@
 - name: Download jetbrains toolbox
-  become_user: peter
+  become_user: "{{ main_user }}"
   unarchive:
     src: https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.18.7609.tar.gz
-    dest: /home/peter/Downloads
+    dest: "/home/{{ main_user }}/Downloads"
     remote_src: yes

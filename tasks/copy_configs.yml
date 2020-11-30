@@ -1,43 +1,43 @@
 - name: Hardlink .alacritty.yml
   file:
     src: $PWD/files/conf_files/.alacritty.yml
-    dest: /home/peter/.alacritty.yml
+    dest: "/home/{{ main_user }}/.alacritty.yml"
     state: hard
-  become_user: peter
+  become_user: "{{ main_user }}"
 
 - name: Hardlink .bashrc
   file:
     src: $PWD/files/conf_files/.bashrc
-    dest: /home/peter/.bashrc
+    dest: "/home/{{ main_user }}/.bashrc"
     state: hard
-  become_user: peter
+  become_user: "{{ main_user }}"
 
 - name: Hardlink .editorconfig
   file:
     src: $PWD/files/conf_files/.editorconfig
-    dest: /home/peter/.editorconfig
+    dest: "/home/{{ main_user }}/.editorconfig"
     state: hard
-  become_user: peter
+  become_user: "{{ main_user }}"
 
 - name: Hardlink .tmux.conf
   file:
     src: $PWD/files/conf_files/.tmux.conf
-    dest: /home/peter/.tmux.conf
+    dest: "/home/{{ main_user }}/.tmux.conf"
     state: hard
-  become_user: peter
+  become_user: "{{ main_user }}"
 
 - name: Hardlink .zshrc
   become: yes
-  become_user: peter
+  become_user: "{{ main_user }}"
   file:
     src: $PWD/files/conf_files/.zshrc
-    dest: /home/peter/.zshrc
+    dest: "/home/{{ main_user }}/.zshrc"
     state: hard
     force: yes
 
 - name: Hardlink topgrade.toml
   file:
     src: $PWD/files/conf_files/topgrade.toml
-    dest: /home/peter/topgrade.toml
+    dest: "/home/{{ main_user }}/topgrade.toml"
     state: hard
-  become_user: peter
+  become_user: "{{ main_user }}"

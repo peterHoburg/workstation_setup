@@ -3,21 +3,21 @@
 
 - name: Clone alactitty from GitHub
   become: yes
-  become_user: peter
+  become_user: "{{ main_user }}"
   git:
     repo: 'https://github.com/alacritty/alacritty.git'
-    dest: /home/peter/alacritty
+    dest: "/home/{{ main_user }}/alacritty"
 
 - name: Alacritty Terminfo
   become: yes
   become_user: root
-  shell: tic -xe alacritty,alacritty-direct /home/peter/alacritty/extra/alacritty.info
+  shell: "tic -xe alacritty,alacritty-direct /home/{{ main_user }}/alacritty/extra/alacritty.info"
 
 - name: Copy Alacritty.svg
   become: true
   become_user: root
   copy:
-    src: /home/peter/alacritty/extra/logo/compat/alacritty-term+scanlines.png
+    src: "/home/{{ main_user }}/alacritty/extra/logo/compat/alacritty-term+scanlines.png"
     dest: /usr/share/pixmaps/Alacritty.png
     owner: root
     group: root
@@ -26,7 +26,7 @@
 - name: Alacritty.desktop
   become: yes
   become_user: root
-  shell: desktop-file-install /home/peter/alacritty/extra/linux/Alacritty.desktop
+  shell: "desktop-file-install /home/{{ main_user }}/alacritty/extra/linux/Alacritty.desktop"
 
 - name: Update desktop database
   become: yes

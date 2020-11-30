@@ -3,12 +3,12 @@
     url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
     dest: /tmp/ohmyzsh.sh
     mode: 0700
-    owner: peter
-  become_user: peter
+    owner: "{{ main_user }}"
+  become_user: "{{ main_user }}"
 
 - name: Install ohmyzsh
   become: yes
-  become_user: peter
+  become_user: "{{ main_user }}"
   shell: sh -c /tmp/ohmyzsh.sh --unattended
 
 
@@ -19,14 +19,14 @@
 
 - name: Clone zsh-autosuggestions from GitHub
   become: yes
-  become_user: peter
+  become_user: "{{ main_user }}"
   git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions'
     dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 - name: Clone zsh-syntax-highlighting from GitHub
   become: yes
-  become_user: peter
+  become_user: "{{ main_user }}"
   git:
     repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
     dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting

@@ -1,10 +1,10 @@
 - name: Clone throttled from GitHub
   git:
     repo: 'https://github.com/erpalma/throttled.git'
-    dest: /home/peter/Documents/throttled
+    dest: "/home/{{ main_user }}/Documents/throttled"
 
 - name: Install Throttled
-  shell: /home/peter/Documents/throttled/install.sh
+  shell: "/home/{{ main_user }}/Documents/throttled/install.sh"
   become_user: root
 
 - name: stop thermald.service
