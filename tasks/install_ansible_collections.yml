@@ -1,2 +1,4 @@
 - name: Install community collections
+  become: yes
+  become_user: "{{ main_user }}"
   command: ansible-galaxy collection install -r requirements.yml

@@ -1,25 +1,33 @@
 - name: Clone throttled from GitHub
+  become: yes
+  become_user: "{{ main_user }}"
   git:
     repo: 'https://github.com/erpalma/throttled.git'
     dest: "/home/{{ main_user }}/Documents/throttled"
 
 - name: Install Throttled
+  become: yes
+  become_user: "{{ root_user }}"
   shell: "/home/{{ main_user }}/Documents/throttled/install.sh"
-  become_user: root
 
 - name: stop thermald.service
+  become: yes
+  become_user: "{{ root_user }}"
   shell: systemctl stop thermald.service
-  become_user: root
 
 - name: disable thermald.service
+  become: yes
+  become_user: "{{ root_user }}"
   shell: systemctl disable thermald.service
-  become_user: root
 
 - name: mask thermald.service
+  become: yes
+  become_user: "{{ root_user }}"
   shell: systemctl mask thermald.service
-  become_user: root
 
-- name: Install packages
+- name: Remove thermald
+  become: yes
+  become_user: "{{ root_user }}"
   package:
     name:
       - thermald

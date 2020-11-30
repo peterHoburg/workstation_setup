@@ -1,2 +1,4 @@
 - name: Install Topgrade
+  become: yes
+  become_user: "{{ main_user }}"
   command: ~/.cargo/bin/cargo install topgrade

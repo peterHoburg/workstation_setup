@@ -1,10 +1,12 @@
 - name: Download oh_my_zsh installer
+  become: yes
+  become_user: "{{ main_user }}"
   get_url:
     url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
     dest: /tmp/ohmyzsh.sh
     mode: 0700
     owner: "{{ main_user }}"
-  become_user: "{{ main_user }}"
+
 
 - name: Install ohmyzsh
   become: yes
@@ -14,7 +16,7 @@
 
 - name: Change Default Shell to ZSH
   become: yes
-  become_user: root
+  become_user: "{{ root_user }}"
   shell: chsh -s /usr/bin/zsh
 
 - name: Clone zsh-autosuggestions from GitHub
@@ -22,11 +24,11 @@
   become_user: "{{ main_user }}"
   git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions'
-    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    dest: "/home/{{ main_user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
 - name: Clone zsh-syntax-highlighting from GitHub
   become: yes
   become_user: "{{ main_user }}"
   git:
     repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
-    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    dest: "/home/{{ main_user }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"

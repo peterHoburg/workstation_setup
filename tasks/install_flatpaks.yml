@@ -1,0 +1,14 @@
+- name: Add the flathub flatpak repository remote to the user installation
+  become: yes
+  become_user: "{{ main_user }}"
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+- name: Install the qBittorrent flatpak
+  become: yes
+  become_user: "{{ main_user }}"
+  community.general.flatpak:
+    name:  org.qbittorrent.qBittorrent
+    state: present

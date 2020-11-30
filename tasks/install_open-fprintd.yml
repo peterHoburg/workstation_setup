@@ -1,23 +1,25 @@
 # https://github.com/uunicorn/python-validity
 - name: Install packages
+  become: yes
+  become_user: "{{ root_user }}"
   package:
     name:
       - fprintd
     state: absent
-  become_user: root
-
 
 - name: Add python-validity PPA
+  become: yes
+  become_user: "{{ root_user }}"
   apt_repository:
     repo: ppa:uunicorn/open-fprintd
     state: present
-  become_user: root
 
 - name: Install python-validity packages
+  become: yes
+  become_user: "{{ root_user }}"
   package:
     name:
       - open-fprintd
       - fprintd-clients
       - python3-validity
     state: latest
-  become_user: root

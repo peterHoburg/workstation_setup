@@ -1,4 +1,6 @@
 - name: Install packages
+  become: yes
+  become_user: "{{ root_user }}"
   package:
     name:
       - apt-transport-https
@@ -31,26 +33,3 @@
       - vim
       - zsh
     state: latest
-
-- name: Add the flathub flatpak repository remote to the user installation
-  community.general.flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-
-- name: Install the qBittorrent flatpak
-  community.general.flatpak:
-    name:  org.qbittorrent.qBittorrent
-    state: present
-
-- name: Snaps
-  community.general.snap:
-    name:
-      - superproductivity
-
-- name: Snaps classic
-  community.general.snap:
-    name:
-      - google-cloud-sdk
-      - kubectl
-    classic: yes

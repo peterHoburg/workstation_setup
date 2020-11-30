@@ -1,30 +1,34 @@
 - name: Hardlink .alacritty.yml
+  become: yes
+  become_user: "{{ main_user }}"
   file:
     src: $PWD/files/conf_files/.alacritty.yml
     dest: "/home/{{ main_user }}/.alacritty.yml"
     state: hard
-  become_user: "{{ main_user }}"
 
 - name: Hardlink .bashrc
+  become: yes
+  become_user: "{{ main_user }}"
   file:
     src: $PWD/files/conf_files/.bashrc
     dest: "/home/{{ main_user }}/.bashrc"
     state: hard
-  become_user: "{{ main_user }}"
 
 - name: Hardlink .editorconfig
+  become: yes
+  become_user: "{{ main_user }}"
   file:
     src: $PWD/files/conf_files/.editorconfig
     dest: "/home/{{ main_user }}/.editorconfig"
     state: hard
-  become_user: "{{ main_user }}"
 
 - name: Hardlink .tmux.conf
+  become: yes
+  become_user: "{{ main_user }}"
   file:
     src: $PWD/files/conf_files/.tmux.conf
     dest: "/home/{{ main_user }}/.tmux.conf"
     state: hard
-  become_user: "{{ main_user }}"
 
 - name: Hardlink .zshrc
   become: yes
@@ -36,9 +40,10 @@
     force: yes
 
 - name: Hardlink topgrade.toml
+  become: yes
+  become_user: "{{ main_user }}"
   file:
     src: $PWD/files/conf_files/topgrade.toml
     dest: "/home/{{ main_user }}/.config/topgrade.toml"
     state: hard
     force: yes
-  become_user: "{{ main_user }}"

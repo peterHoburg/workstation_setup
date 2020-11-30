@@ -1,6 +1,7 @@
 - hosts: localhost
   vars:
     main_user: peter
+    root_user: root
   become: yes
   become_user: "{{ main_user }}"
   pre_tasks:
@@ -13,19 +14,21 @@
     - community.general.flatpak
 
   tasks:
-    - include: ./tasks/collections.yml
-    - include: ./tasks/packages.yml
-    - include: ./tasks/lenovo_throttled.yml
+    - include: ./tasks/install_ansible_collections.yml
+    - include: ./tasks/install_packages.yml
+    - include: ./tasks/install_snaps.yml
+    - include: ./tasks/install_flatpaks.yml
+    - include: ./tasks/install_lenovo_throttled.yml
     - include: ./tasks/install_oh_my_zsh.yml
     - include: ./tasks/copy_configs.yml
-    - include: ./tasks/jetbrains_toolbox.yml
-    - include: ./tasks/fonts.yml
-    - include: ./tasks/ssh_conf_files.yml
-    - include: ./tasks/add_python_fingerprint.yml
+    - include: ./tasks/download_jetbrains_toolbox.yml
+    - include: ./tasks/download-fonts.yml
+    - include: ./tasks/copy_ssh_conf_files.yml
+    - include: ./tasks/install_open-fprintd.yml
     - include: ./tasks/install_rust.yml
     - include: ./tasks/install_topgrade.yml
     - include: ./tasks/install_alacritty.yml
-    - include: ./tasks/install_kite.yml
+    - include: ./tasks/download_kite.yml
 
 #    - include: ./tasks/users.yml
 #    - include: ./tasks/cron.yml

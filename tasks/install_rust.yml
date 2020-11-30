@@ -1,7 +1,11 @@
 - name: Download Rust Installer
+  become: yes
+  become_user: "{{ main_user }}"
   get_url:
     url: https://sh.rustup.rs
     dest: /tmp/rust_install.sh
 
 - name: Install Rust
+  become: yes
+  become_user: "{{ main_user }}"
   command: sh /tmp/rust_install.sh -y

@@ -1,4 +1,5 @@
 - name: Download jetbrains toolbox
+  become: yes
   become_user: "{{ main_user }}"
   unarchive:
     src: https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.18.7609.tar.gz
