@@ -12,3 +12,10 @@
   community.general.flatpak:
     name:  org.qbittorrent.qBittorrent
     state: present
+
+- name: Install the Deja Dup flatpak
+  become: yes
+  become_user: "{{ main_user }}"
+  community.general.flatpak:
+    name:  org.gnome.DejaDup
+    state: present

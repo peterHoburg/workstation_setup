@@ -29,6 +29,7 @@
       - snapd
       - software-properties-common
       - stress
+      - timeshift
       - tmux
       - vim
       - zsh
