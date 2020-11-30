@@ -38,6 +38,7 @@
 - name: Hardlink topgrade.toml
   file:
     src: $PWD/files/conf_files/topgrade.toml
-    dest: "/home/{{ main_user }}/topgrade.toml"
+    dest: "/home/{{ main_user }}/.config/topgrade.toml"
     state: hard
+    force: yes
   become_user: "{{ main_user }}"
