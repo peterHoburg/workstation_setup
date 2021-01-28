@@ -32,3 +32,100 @@
 #    sudo make install
 #
 #    CMake will detect whether you use OpenRC or systemd and install some appropriate service files. With systemd, you can edit the commandline arguments of the thinkfan service with systemctl edit thinkfan. With OpenRC, we install only a plain initscript (edit /etc/init.d/thinkfan to change options).
+# https://gist.github.com/Yatoom/1c80b8afe7fa47a938d3b667ce234559
+# Thinkfan setup
+#Note: I configured this thinkfan setup for my old Thinkpad w520 on Ubuntu 17.10.
+#
+#
+### 1. Install necessary programs
+#
+#Install `lm-sensors` and `thinkfan`.
+#
+#````
+#sudo apt-get install lm-sensors thinkfan
+#````
+#
+#
+#
+### 2. Setup configuration
+#
+#Find the temperature control devices with
+#
+#````
+#find /sys/devices -type f -name "temp*_input"
+#````
+#
+#
+#
+#Add them to `/etc/thinkfan.conf`, including (level, min_temperature, max_temperature):
+#
+#```
+#hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp3_input
+#hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp4_input
+#hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp5_input
+#hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
+#hwmon /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp2_input
+#
+#(0,	0,	60)
+#(1,	60,	65)
+#(2,	65,	70)
+#(3,	70,	75)
+#(4,	75,	80)
+#(5,	80,	85)
+#(7,	85,	32767)
+#```
+#
+#
+#
+### 3. Enable fan control
+#
+#```
+#echo "options thinkpad_acpi fan_control=1" > /etc/modprobe.d/thinkfan.conf
+#modprobe thinkpad_acpi
+#```
+#
+#- You can check with `lsmod` if `thinkfan_acpi` is running
+#- To reload a module you need to remove it with `sudo modprobe -r <module>`, but this is not always possible, so we might need a reboot here.
+#
+#
+#
+### 4. Testing and running
+#
+#To test thinkfan, use:
+#
+#```
+#thinkfan -n
+#```
+#And to run it, use:
+#
+#```
+#sudo service thinkfan start
+#```
+#
+#And to retrieve the status, use:
+#
+#```
+#service thinkfan status
+#```
+#
+#
+#
+### 5. Running on startup
+#
+#To make it run at startup, we need to edit `/etc/modules` and add the lines below, to make the modules `thinkpad_acpi` and `coretemp` load at boot time. The `thinkpad_acpi` has to be loaded before `coretemp`.
+#
+#```
+#thinkpad_acpi
+#coretemp
+#```
+#
+#Note that this may change the `/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp*_input` paths (`hwmon3` can become `hwmon2` or vice versa), probably because of the order in which the modules are loaded or something. So, in the `/etc/thinkfan.conf` config, you might need to update these lines.
+#
+#
+#
+#Furthermore, we need to enable the `thinkfan` service via `systemctl`.
+#
+#```
+#sudo systemctl enable thinkfan.service
+#```
+#
