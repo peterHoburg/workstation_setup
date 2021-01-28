@@ -1,0 +1,34 @@
+#https://github.com/vmatare/thinkfan
+#    sudo apt install libyaml-cpp-dev
+#
+#    In the thinkfan main directory, do
+#
+#    mkdir build && cd build
+#
+#    Then configure your build, either interactively:
+#
+#    ccmake ..
+#
+#    Or set your build options from the command line. E.g. to configure a build with full debugging support:
+#
+#     cmake -D CMAKE_BUILD_TYPE:STRING=Debug ..
+#
+#    CMAKE_BUILD_TYPE:STRING can also be Release, which produces a fully optimized binary, or RelWithDebInfo, which is also optimized but can still be debugged with gdb.
+#
+#    Other options are:
+#
+#    USE_NVML:BOOL (default: ON) Allows thinkfan to read GPU temperatures from the proprietary nVidia driver. The interface library is loaded dynamically, so it does not need to be installed when compiling.
+#
+#    USE_ATASMART:BOOL (default: OFF) Enable libatasmart to read temperatures directly from hard disks. Use this only when you really need it, since libatasmart is unreasonably CPU-intensive.
+#
+#    USE_YAML:BOOL (default: ON) Support config file in the new, more flexible YAML format. The old config format will be deprecated after the thinkfan 1.0 release. New features will be supported in YAML configs only. See examples/thinkfan.conf.yaml. Requires libyaml-cpp.
+#
+#    To compile simply run:
+#
+#    make
+#
+#    If you did not change CMAKE_INSTALL_PREFIX, thinkfan will be installed under /usr/local by doing:
+#
+#    sudo make install
+#
+#    CMake will detect whether you use OpenRC or systemd and install some appropriate service files. With systemd, you can edit the commandline arguments of the thinkfan service with systemctl edit thinkfan. With OpenRC, we install only a plain initscript (edit /etc/init.d/thinkfan to change options).

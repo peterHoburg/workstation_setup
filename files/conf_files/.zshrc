@@ -35,7 +35,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin:/usr/lib:/snap/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin:/usr/lib:/snap/bin:/usr/local:/usr/local/sbin"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
