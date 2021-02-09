@@ -1,13 +1,13 @@
 - name: Snaps
   become: yes
-  become_user: "{{ main_user }}"
+  become_user: "{{ root_user }}"
   community.general.snap:
     name:
       - superproductivity
 
 - name: Snaps classic
   become: yes
-  become_user: "{{ main_user }}"
+  become_user: "{{ root_user }}"
   community.general.snap:
     name:
       - google-cloud-sdk
