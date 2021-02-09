@@ -33,4 +33,6 @@
       - tmux
       - vim
       - zsh
+      - lm-sensors
+      - thinkfan
     state: latest

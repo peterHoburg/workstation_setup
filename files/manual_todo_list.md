@@ -10,5 +10,8 @@
 * Install Kite
     * `bash -c ~/Downloads/kite_installer.sh`
     * Login
+* Change capslock to escape
+* Change background
+
 
 

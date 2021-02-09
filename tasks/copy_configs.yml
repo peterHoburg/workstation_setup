@@ -47,3 +47,12 @@
     dest: "/home/{{ main_user }}/.config/topgrade.toml"
     state: hard
     force: yes
+
+- name: Hardlink thinkfan.yaml
+  become: yes
+  become_user: "{{ root_user }}"
+  file:
+    src: $PWD/files/conf_files/thinkfan.yaml
+    dest: "/etc/thinkfan.yaml"
+    state: hard
+    force: yes
