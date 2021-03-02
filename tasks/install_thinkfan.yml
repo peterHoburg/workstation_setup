@@ -1,57 +1,16 @@
 #   https://gist.github.com/Yatoom/1c80b8afe7fa47a938d3b667ce234559
 
-#  ## 3. Enable fan control
-#
-#  ```
-#  echo "options thinkpad_acpi fan_control=1" > /etc/modprobe.d/thinkfan.yaml
-#  modprobe thinkpad_acpi
-#  ```
-#
-#  - You can check with `lsmod` if `thinkfan_acpi` is running
-#  - To reload a module you need to remove it with `sudo modprobe -r <module>`, but this is not always possible, so we might need a reboot here.
-#
-#
-#
-#  ## 4. Testing and running
-#
-#  To test thinkfan, use:
-#
-#  ```
-#  thinkfan -n
-#  ```
-#  And to run it, use:
-#
-#  ```
-#  sudo service thinkfan start
-#  ```
-#
-#  And to retrieve the status, use:
-#
-#  ```
-#  service thinkfan status
-#  ```
-#
-#
-#
-#  ## 5. Running on startup
-#
-#  To make it run at startup, we need to edit `/etc/modules` and add the lines below, to make the modules `thinkpad_acpi` and `coretemp` load at boot time. The `thinkpad_acpi` has to be loaded before `coretemp`.
-#
-#  ```
-#  thinkpad_acpi
-#  coretemp
-#  ```
-#
-#  Note that this may change the `/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp*_input` paths (`hwmon3` can become `hwmon2` or vice versa), probably because of the order in which the modules are loaded or something. So, in the `/etc/thinkfan.yaml` config, you might need to update these lines.
-#
-#
-#
-#  Furthermore, we need to enable the `thinkfan` service via `systemctl`.
-#
-#  ```
-#  sudo systemctl enable thinkfan.service
-#  ```
-#
+# git clone git@github.com:vmatare/thinkfan.git
+# sudo apt install libyaml-cpp-dev
+# mkdir build && cd build
+# ccmake ..
+# cmake -D CMAKE_BUILD_TYPE:STRING=Release ..
+# make
+# sudo make install
+# sudo -s
+# echo "options thinkpad_acpi fan_control=1" > /etc/modprobe.d/thinkfan.conf
+# modprobe thinkpad_acpi
+# reboot
 
 - name: Start Thinkfan service
   become: yes
