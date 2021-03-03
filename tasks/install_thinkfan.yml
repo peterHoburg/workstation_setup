@@ -10,7 +10,15 @@
 # sudo -s
 # echo "options thinkpad_acpi fan_control=1" > /etc/modprobe.d/thinkfan.conf
 # modprobe thinkpad_acpi
+# thinkfan -n
+# sudo service thinkfan start
+# Edit /etc/modules. Add :
+#  thinkpad_acpi
+#  coretemp
+# sudo systmctl enable thinkfan.service
 # reboot
+
+# To check on the status: service thinkfan status
 
 - name: Start Thinkfan service
   become: yes
