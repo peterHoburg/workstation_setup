@@ -1,3 +1,19 @@
+- name: ansible create multiple directory example
+    file:
+      path: "/home/{{ main_user }}/.config/fish"}"
+      state: directory
+    with_items:
+      - '/functions'
+
+- name: Hardlink fish
+  become: yes
+  become_user: "{{ root_user }}"
+  file:
+    src: $PWD/files/fish/
+    dest: "/home/{{ main_user }}/.config/fish"
+    state: hard
+    force: yes
+
 - name: Add fish PPA
   become: yes
   become_user: "{{ root_user }}"
