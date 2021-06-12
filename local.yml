@@ -30,6 +30,7 @@
     - import_tasks: ./tasks/copy_ssh_conf_files.yml
     - import_tasks: ./tasks/install_rust.yml
     - import_tasks: ./tasks/install_topgrade.yml
+    - import_tasks: ./tasks/install_docker.yml
     - include_tasks: ./tasks/thinkpad_only.yml
       when: thinkpad == "y"
     - include_tasks: ./tasks/install_fish.yml
