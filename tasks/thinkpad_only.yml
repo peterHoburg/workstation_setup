@@ -7,15 +7,15 @@
       - thinkfan
     state: latest
 
-- name: Start Thinkfan service
-  become: yes
-  become_user: "{{ root_user }}"
-  shell: service thinkfan start
+# - name: Start Thinkfan service
+#   become: yes
+#   become_user: "{{ root_user }}"
+#   shell: service thinkfan start
 
-- name: Enable thinkfan service at boot
-  become: yes
-  become_user: "{{ root_user }}"
-  shell: systemctl enable thinkfan.service
+# - name: Enable thinkfan service at boot
+#   become: yes
+#   become_user: "{{ root_user }}"
+#   shell: systemctl enable thinkfan.service
 
 - name: Clone throttled from GitHub
   become: yes
