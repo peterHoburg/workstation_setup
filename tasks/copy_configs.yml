@@ -61,13 +61,3 @@
     dest: "/etc/thinkfan.yaml"
     state: hard
     force: yes
-
-
-- name: Hardlink fish
-  become: yes
-  become_user: "{{ root_user }}"
-  file:
-    src: $PWD/files/fish/
-    dest: "/home/{{ main_user }}/.config/fish"
-    state: hard
-    force: yes
