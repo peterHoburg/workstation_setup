@@ -32,11 +32,11 @@
     - import_tasks: ./tasks/install_rust.yml
     - import_tasks: ./tasks/install_topgrade.yml
     - include_tasks: ./tasks/thinkpad_only.yml
-      when: thinkpad == y
+      when: thinkpad == "y"
     - include_tasks: ./tasks/install_fish.yml
-      when: shell_var == fish
+      when: shell_var == "fish"
     - include_tasks: ./tasks/install_oh_my_zsh.yml
-      when: shell_var == zsh
+      when: shell_var == "zsh"
 
 
 #    - include: ./tasks/install_thinkfan.yml
