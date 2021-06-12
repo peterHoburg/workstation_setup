@@ -17,7 +17,7 @@
   become_user: "{{ root_user }}"
   file:
     src: $PWD/files/fish/fish/functions/fish_prompt.fish 
-    dest: "/home/{{ main_user }}/.config/fish/functsions/fish_prompt.fish"
+    dest: "/home/{{ main_user }}/.config/fish/functions/fish_prompt.fish"
     state: hard
     force: yes
 
