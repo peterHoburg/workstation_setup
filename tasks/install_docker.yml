@@ -1,1 +1,12 @@
 # https://docs.docker.com/engine/install/ubuntu/
+- name: Download Docker install script
+  get_url:
+    url: https://get.docker.com 
+    dest: "/home/{{ main_user }}/Downloads/docker.sh"
+    mode: '0777'
+    
+- name: Run docker install script
+  become: yes
+  become_user: "{{ root }}"
+  ansible.builtin.script:
+    cmd: "/home/{{ main_user }}/Downloads/docker.sh"
