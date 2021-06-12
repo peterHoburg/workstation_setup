@@ -11,11 +11,11 @@ Install the requirements.yml
 
 THEN
 
-Run `sudo ansible-pull -U https://github.com/peterHoburg/workstation_setup.git local.yml --extra-vars "main_user=peter"`
+Run `sudo ansible-pull -U https://github.com/peterHoburg/workstation_setup.git local.yml --extra-vars "main_user=$USER"`
 
 OR
 
-Run `sudo ansible-playbook local.yml --extra-vars "main_user=peter"`
+Run `sudo ansible-playbook local.yml --extra-vars "main_user=$USER"`
 
 THEN
 
