@@ -5,6 +5,11 @@
     src: $PWD/files/conf_files/.alacritty.yml
     dest: "/home/{{ main_user }}/.alacritty.yml"
     state: hard
+    
+- name: Delete .bashrc
+  ansible.builtin.file:
+    path: "/home/{{ main_user }}/.bashrc"
+    state: absent
 
 - name: Hardlink .bashrc
   become: yes
@@ -13,6 +18,8 @@
     src: $PWD/files/conf_files/.bashrc
     dest: "/home/{{ main_user }}/.bashrc"
     state: hard
+
+
 
 - name: Hardlink .editorconfig
   become: yes
