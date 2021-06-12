@@ -12,3 +12,8 @@
     name:
       - fish
     state: latest
+
+- name: Change Default Shell to fish
+  become: yes
+  become_user: "{{ root_user }}"
+  shell: chsh -s /usr/local/bin/fish
