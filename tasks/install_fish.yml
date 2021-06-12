@@ -1,14 +1,23 @@
 - name: Make config fish dir
-file:
-  path: "/home/{{ main_user }}/.config/fish"
-  state: directory
+  file:
+    path: "/home/{{ main_user }}/.config/fish/functions"
+    state: directory
 
 - name: Hardlink fish
   become: yes
   become_user: "{{ root_user }}"
   file:
-    src: $PWD/files/fish/
-    dest: "/home/{{ main_user }}/.config/fish"
+    src: $PWD/files/fish/fish/fish_variables 
+    dest: "/home/{{ main_user }}/.config/fish/fish_variables"
+    state: hard
+    force: yes
+    
+- name: Hardlink fish
+  become: yes
+  become_user: "{{ root_user }}"
+  file:
+    src: $PWD/files/fish/fish/functions/fish_prompt.fish 
+    dest: "/home/{{ main_user }}/.config/fish/functsions/fish_prompt.fish"
     state: hard
     force: yes
 
