@@ -7,6 +7,6 @@
     
 - name: Run docker install script
   become: yes
-  become_user: "{{ root }}"
+  become_user: "{{ root_user }}"
   ansible.builtin.script:
     cmd: "/home/{{ main_user }}/Downloads/docker.sh"
