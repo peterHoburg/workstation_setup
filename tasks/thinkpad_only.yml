@@ -68,19 +68,19 @@
       - fprintd
     state: absent
 
-- name: Add python-validity PPA
-  become: yes
-  become_user: "{{ root_user }}"
-  apt_repository:
-    repo: ppa:uunicorn/open-fprintd
-    state: present
+# - name: Add python-validity PPA
+#   become: yes
+#   become_user: "{{ root_user }}"
+#   apt_repository:
+#     repo: ppa:uunicorn/open-fprintd
+#     state: present
 
-- name: Install python-validity packages
-  become: yes
-  become_user: "{{ root_user }}"
-  package:
-    name:
-      - open-fprintd
-      - fprintd-clients
-      - python3-validity
-    state: latest
+# - name: Install python-validity packages
+#   become: yes
+#   become_user: "{{ root_user }}"
+#   package:
+#     name:
+#       - open-fprintd
+#       - fprintd-clients
+#       - python3-validity
+#     state: latest
