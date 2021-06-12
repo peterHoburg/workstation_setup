@@ -1,9 +1,7 @@
-- name: ansible create multiple directory example
-    file:
-      path: "/home/{{ main_user }}/.config/fish"}"
-      state: directory
-    with_items:
-      - '/functions'
+- name: Make config fish dir
+file:
+  path: "/home/{{ main_user }}/.config/fish"
+  state: directory
 
 - name: Hardlink fish
   become: yes
