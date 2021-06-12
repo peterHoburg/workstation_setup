@@ -29,11 +29,18 @@
   become_user: "{{ root_user }}"
   shell: "/home/{{ main_user }}/Documents/throttled/install.sh"
 
+# - name: stop thermald.service
+#   become: yes
+#   become_user: "{{ root_user }}"
+#   shell: systemctl stop thermald.service
+  
 - name: stop thermald.service
   become: yes
   become_user: "{{ root_user }}"
-  shell: systemctl stop thermald.service
-
+  ansible.builtin.systemd:
+    state: stop
+    name: thermald.service
+    
 - name: disable thermald.service
   become: yes
   become_user: "{{ root_user }}"
