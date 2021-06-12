@@ -1,4 +1,12 @@
 - hosts: localhost
+  vars_prompt:
+    - name: "thinkpad"
+      prompt: "Are you installing this on a thinkpad? (y/n)"
+      default: "n"
+    vars_prompt:
+      - name: "shell_var"
+        prompt: "What additional shell do you want install and use (fish/zsh/none)?"
+        default: "none"
   vars:
     main_user: peter
     root_user: root
@@ -14,22 +22,27 @@
     - community.general.flatpak
 
   tasks:
-#    - include: ./tasks/install_ansible_collections.yml
-#    - include: ./tasks/install_packages.yml
-#    - include: ./tasks/install_snaps.yml
-#    - include: ./tasks/install_flatpaks.yml
+    - include: ./tasks/install_ansible_collections.yml
+    - include: ./tasks/install_packages.yml
+    - include: ./tasks/install_snaps.yml
+    - include: ./tasks/install_flatpaks.yml
+    - include: ./tasks/copy_configs.yml
+    - include: ./tasks/download_jetbrains_toolbox.yml
+    - include: ./tasks/copy_ssh_conf_files.yml
+    - include: ./tasks/install_rust.yml
+    - include: ./tasks/install_topgrade.yml
+    - include_tasks: ./tasks/thinkpad_only.yml
+      when: thinkpad == y
+    - include_tasks: ./tasks/install_fish.yml
+      when: shell_var == fish
+    - include_tasks: ./tasks/install_oh_my_zsh.yml
+      when: shell_var == zsh
+
+
+#    - include: ./tasks/install_thinkfan.yml
 #    - include: ./tasks/install_lenovo_throttled.yml
-#    - include: ./tasks/install_oh_my_zsh.yml
-#    - include: ./tasks/copy_configs.yml
-#    - include: ./tasks/download_jetbrains_toolbox.yml
-#    - include: ./tasks/download-fonts.yml
-#    - include: ./tasks/copy_ssh_conf_files.yml
 #    - include: ./tasks/install_open-fprintd.yml
-#    - include: ./tasks/install_rust.yml
-#    - include: ./tasks/install_topgrade.yml
 #    - include: ./tasks/install_alacritty.yml
 #    - include: ./tasks/download_kite.yml
-    - include: ./tasks/install_thinkfan.yml
-
 #    - include: ./tasks/users.yml
 #    - include: ./tasks/cron.yml

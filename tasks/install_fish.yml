@@ -1,0 +1,6 @@
+- name: Add python-validity PPA
+  become: yes
+  become_user: "{{ root_user }}"
+  apt_repository:
+    repo: ppa:fish-shell/release-3
+    state: present
