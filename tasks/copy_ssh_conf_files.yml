@@ -1,3 +1,8 @@
+- name: Make sure .ssh dir exists
+  file:
+    path: "/home/{{ main_user }}/.ssh"
+    state: directory
+    
 - name: Hardlink ssh config
   become: yes
   become_user: "{{ main_user }}"
