@@ -10,3 +10,5 @@
   become_user: "{{ root_user }}"
   ansible.builtin.script:
     cmd: "/home/{{ main_user }}/Downloads/docker.sh"
+  args:
+    creates: /usr/bin/docker
