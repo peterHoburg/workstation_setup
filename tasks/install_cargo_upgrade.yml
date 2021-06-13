@@ -1,0 +1,4 @@
+- name: Install cargo-update
+  become: yes
+  become_user: "{{ main_user }}"
+  command: ~/.cargo/bin/cargo install cargo-update

@@ -32,4 +32,5 @@
       - timeshift
       - tmux
       - vim
+      - libssl-dev
     state: latest

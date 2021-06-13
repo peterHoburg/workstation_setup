@@ -1,10 +1,10 @@
 # https://docs.docker.com/engine/install/ubuntu/
 - name: Download Docker install script
   get_url:
-    url: https://get.docker.com 
+    url: https://get.docker.com
     dest: "/home/{{ main_user }}/Downloads/docker.sh"
     mode: '0777'
-    
+
 - name: Run docker install script
   become: yes
   become_user: "{{ root_user }}"
@@ -12,3 +12,26 @@
     cmd: "/home/{{ main_user }}/Downloads/docker.sh"
   args:
     creates: /usr/bin/docker
+
+- name: Add Docker group
+  ansible.builtin.group:
+    name: docker
+    state: present
+
+
+- name: Add current user to group
+  become: yes
+  become_user: "{{ root_user }}"
+  ansible.builtin.user:
+    name: "{{ main_user }}"
+    groups: docker
+    append: yes
+
+
+- name: Download Docker-compose executable
+  become: yes
+  become_user: "{{ root_user }}"
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64"
+    dest: "/usr/local/bin/docker-compose"
+    mode: '0777'
