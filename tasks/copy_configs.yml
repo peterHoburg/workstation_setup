@@ -1,3 +1,4 @@
+# TODO make sure this linking is working correctly.
 - name: Hardlink .alacritty.yml
   become: yes
   become_user: "{{ main_user }}"

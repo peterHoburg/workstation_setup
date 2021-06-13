@@ -7,6 +7,7 @@
       - thinkfan
     state: latest
 
+# TODO fix thinkfan
 # - name: Start Thinkfan service
 #   become: yes
 #   become_user: "{{ root_user }}"
@@ -68,6 +69,7 @@
       - fprintd
     state: absent
 
+# TODO fix fingerprint. There is more in another file
 # - name: Add python-validity PPA
 #   become: yes
 #   become_user: "{{ root_user }}"
