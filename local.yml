@@ -4,7 +4,7 @@
       prompt: "What additional shell do you want install and use (fish/zsh/none)?"
       default: "none"
   vars:
-    main_user: peter
+    main_user: "{{ main_user }}"
     root_user: root
   become: yes
   become_user: "{{ main_user }}"
