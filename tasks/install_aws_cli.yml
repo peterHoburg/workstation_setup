@@ -1,0 +1,14 @@
+# https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+- name: Download AWS CLI install script
+  unarchive:
+    src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: "/home/{{ main_user }}/Downloads"
+    remote_src: yes
+
+
+- name: Run AWS CLI install script
+  become: yes
+  become_user: "{{ root_user }}"
+  command: /home/peter/Downloads/aws/install
+  args:
+    creates: /usr/local/bin/aws
