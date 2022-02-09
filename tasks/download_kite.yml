@@ -1,7 +1,0 @@
-- name: Download Kite Installer
-  become: yes
-  become_user: "{{ main_user }}"
-  get_url:
-    url: https://linux.kite.com/dls/linux/current
-    dest: /home/{{ main_user }}/Downloads/kite_installer.sh
-    mode: 0700
