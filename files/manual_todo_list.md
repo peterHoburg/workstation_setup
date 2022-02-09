@@ -1,8 +1,5 @@
 * Install Jetbrains Toolbox
 * Install Pycharm from Toolbox
-* Add fingerprints
-    * `fprintd-enroll`
-    * `sudo pam-auth-update`
 * Generate SSH keys
     * `ssh-keygen -f /home/peter/.ssh/github`
     * `ssh-keygen -f /home/peter/.ssh/space`
@@ -15,6 +12,8 @@
     * `git config --global commit.gpgsign true`
 * Change capslock to escape
 * Change background
+* Enable Poetry Auto completion
+  * https://python-poetry.org/docs/master/#enable-tab-completion-for-bash-fish-or-zsh
 
 
 

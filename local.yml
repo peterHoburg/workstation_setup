@@ -3,9 +3,6 @@
     - name: "shell_var"
       prompt: "What additional shell do you want install and use (fish/zsh/none)?"
       default: "none"
-    - name: "thinkpad"
-      prompt: "Are you installing this on a thinkpad? (y/n)"
-      default: "n"
   vars:
     main_user: peter
     root_user: root
@@ -23,6 +20,7 @@
   tasks:
     - import_tasks: ./tasks/install_ansible_collections.yml
     - import_tasks: ./tasks/install_packages.yml
+    - import_tasks: ./tasks/install_vivaldi.yml
     - import_tasks: ./tasks/install_snaps.yml
     - import_tasks: ./tasks/install_flatpaks.yml
     - import_tasks: ./tasks/copy_configs.yml
@@ -32,18 +30,9 @@
     - import_tasks: ./tasks/install_topgrade.yml
     - import_tasks: ./tasks/install_cargo_upgrade.yml
     - import_tasks: ./tasks/install_docker.yml
-    - include_tasks: ./tasks/thinkpad_only.yml
-      when: thinkpad == "y"
+    - import_tasks: ./tasks/install_python_poetry.yml
+
     - include_tasks: ./tasks/install_fish.yml
       when: shell_var == "fish"
     - include_tasks: ./tasks/install_oh_my_zsh.yml
       when: shell_var == "zsh"
-
-
-#    - include: ./tasks/install_thinkfan.yml
-#    - include: ./tasks/install_lenovo_throttled.yml
-#    - include: ./tasks/install_open-fprintd.yml
-#    - include: ./tasks/install_alacritty.yml
-#    - include: ./tasks/download_kite.yml
-#    - include: ./tasks/users.yml
-#    - include: ./tasks/cron.yml
