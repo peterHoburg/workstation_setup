@@ -2,6 +2,9 @@
 
 sudo apt-get install python3-venv
 python3 -m venv .venv
+
+sudo -s
+
 source .venv/bin/activate
 if [[ "$VIRTUAL_ENV" == "" ]]
 then
