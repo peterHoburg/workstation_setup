@@ -1,12 +1,4 @@
 # TODO make sure this linking is working correctly.
-- name: Hardlink .alacritty.yml
-  become: yes
-  become_user: "{{ main_user }}"
-  file:
-    src: $PWD/files/conf_files/.alacritty.yml
-    dest: "/home/{{ main_user }}/.alacritty.yml"
-    state: hard
-
 - name: Delete .bashrc
   ansible.builtin.file:
     path: "/home/{{ main_user }}/.bashrc"
@@ -51,14 +43,5 @@
   file:
     src: $PWD/files/conf_files/topgrade.toml
     dest: "/home/{{ main_user }}/.config/topgrade.toml"
-    state: hard
-    force: yes
-
-- name: Hardlink thinkfan.yaml
-  become: yes
-  become_user: "{{ root_user }}"
-  file:
-    src: $PWD/files/conf_files/thinkfan.yaml
-    dest: "/etc/thinkfan.yaml"
     state: hard
     force: yes
