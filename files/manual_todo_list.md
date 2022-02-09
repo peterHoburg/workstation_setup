@@ -12,6 +12,8 @@
     * `git config --global commit.gpgsign true`
 * Change capslock to escape
 * Change background
+* Enable Poetry Auto completion
+  * https://python-poetry.org/docs/master/#enable-tab-completion-for-bash-fish-or-zsh
 
 
 

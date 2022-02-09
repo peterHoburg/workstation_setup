@@ -30,6 +30,7 @@
     - import_tasks: ./tasks/install_topgrade.yml
     - import_tasks: ./tasks/install_cargo_upgrade.yml
     - import_tasks: ./tasks/install_docker.yml
+    - import_tasks: ./tasks/install_python_poetry.yml
 
     - include_tasks: ./tasks/install_fish.yml
       when: shell_var == "fish"

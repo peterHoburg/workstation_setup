@@ -1,0 +1,14 @@
+# https://python-poetry.org/docs/master/#installing-with-the-official-installer
+- name: Download Poetry install script
+  get_url:
+    url: https://install.python-poetry.org
+    dest: "/home/{{ main_user }}/Downloads/install-poetry.py"
+    mode: '0777'
+
+- name: Run Poetry install script
+  become: yes
+  become_user: "{{ main_user }}"
+  ansible.builtin.script:
+    cmd: "/home/{{ main_user }}/Downloads/install-poetry.py"
+  args:
+    creates: /home/{{ main_user }}/.local/bin/poetry
