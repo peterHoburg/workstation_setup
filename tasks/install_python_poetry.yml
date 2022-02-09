@@ -9,6 +9,6 @@
   become: yes
   become_user: "{{ main_user }}"
   ansible.builtin.script:
-    cmd: "/home/{{ main_user }}/Downloads/install-poetry.py"
+    cmd: "python3 /home/{{ main_user }}/Downloads/install-poetry.py"
   args:
     creates: /home/{{ main_user }}/.local/bin/poetry
