@@ -1,0 +1,19 @@
+- name: Add terraform apt key
+  become_user: "{{ root_user }}"
+  ansible.builtin.apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: present
+
+- name: Add terraform apt repo
+  become_user: "{{ root_user }}"
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main
+    state: present
+
+- name: Install terraform package
+  become: yes
+  become_user: "{{ root_user }}"
+  package:
+    name:
+      - terraform
+    state: latest

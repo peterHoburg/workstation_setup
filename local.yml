@@ -33,6 +33,7 @@
     - import_tasks: ./tasks/install_python_poetry.yml
     - import_tasks: ./tasks/install_aws_cli.yml
     - import_tasks: ./tasks/install_zoom.yml
+    - import_tasks: ./tasks/install_terraform.yml
 
 
     - include_tasks: ./tasks/install_fish.yml

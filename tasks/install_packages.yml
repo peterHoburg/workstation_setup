@@ -13,6 +13,7 @@
       - git
       - gnome-tweaks
       - gnupg-agent
+      - gnupg
       - htop
       - libcairo2-dev
       - libdbus-glib-1-dev
