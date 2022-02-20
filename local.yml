@@ -35,6 +35,7 @@
     - import_tasks: ./tasks/install_zoom.yml
     - import_tasks: ./tasks/install_terraform.yml
     - import_tasks: ./tasks/install_boundary.yml
+    - import_tasks: ./tasks/install_boundary_desktop.yml
 
 
     - include_tasks: ./tasks/install_fish.yml

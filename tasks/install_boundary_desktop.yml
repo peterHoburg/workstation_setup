@@ -1,0 +1,5 @@
+- name: Install Boundary Desktop .deb
+  become: yes
+  become_user: "{{ root_user }}"
+  apt:
+    deb: https://releases.hashicorp.com/boundary-desktop/1.4.1/boundary-desktop_1.4.1_linux_amd64.deb
