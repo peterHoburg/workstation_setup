@@ -10,10 +10,10 @@
     repo: deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main
     state: present
 
-- name: Install terraform package
+- name: Install boundary package
   become: yes
   become_user: "{{ root_user }}"
   package:
     name:
-      - terraform
+      - boundary
     state: latest
