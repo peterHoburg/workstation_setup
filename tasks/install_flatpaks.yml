@@ -26,3 +26,11 @@
   community.general.flatpak:
     name: com.discordapp.Discord
     state: present
+
+
+- name: Install the Metadata Cleaner
+  become: yes
+  become_user: "{{ main_user }}"
+  community.general.flatpak:
+    name: fr.romainvigier.MetadataCleaner
+    state: present
