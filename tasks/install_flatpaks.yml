@@ -16,13 +16,7 @@
       - com.discordapp.Discord
       - fr.romainvigier.MetadataCleaner
       - org.libreoffice.LibreOffice
+      - org.mozilla.firefox
+      - org.gnome.DejaDup
     state: present
     method: user
-
-- name: Install system flatpaks
-  become: yes
-  become_user: "{{ main_user }}"
-  community.general.flatpak:
-    name: org.gnome.DejaDup
-    state: present
-    method: system

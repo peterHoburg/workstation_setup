@@ -43,4 +43,5 @@
   package:
     name:
       - libreoffice*
+      - firefox*
     state: absent
