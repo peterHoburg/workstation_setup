@@ -4,6 +4,7 @@
   community.general.snap:
     name:
       - superproductivity
+      - space
 
 - name: Snaps classic
   become: yes

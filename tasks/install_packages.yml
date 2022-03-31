@@ -35,3 +35,12 @@
       - vim
       - libssl-dev
     state: latest
+
+
+- name: Remove packages
+  become: yes
+  become_user: "{{ root_user }}"
+  package:
+    name:
+      - libreoffice*
+    state: absent

@@ -5,32 +5,24 @@
     name: flathub
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: user
 
-- name: Install the qBittorrent flatpak
+- name: Install user flatpaks
   become: yes
   become_user: "{{ main_user }}"
   community.general.flatpak:
-    name: org.qbittorrent.qBittorrent
+    name:
+      - org.qbittorrent.qBittorrent
+      - com.discordapp.Discord
+      - fr.romainvigier.MetadataCleaner
+      - org.libreoffice.LibreOffice
     state: present
+    method: user
 
-- name: Install the Deja Dup flatpak
+- name: Install system flatpaks
   become: yes
   become_user: "{{ main_user }}"
   community.general.flatpak:
     name: org.gnome.DejaDup
     state: present
-
-- name: Install the Discord flatpak
-  become: yes
-  become_user: "{{ main_user }}"
-  community.general.flatpak:
-    name: com.discordapp.Discord
-    state: present
-
-
-- name: Install the Metadata Cleaner
-  become: yes
-  become_user: "{{ main_user }}"
-  community.general.flatpak:
-    name: fr.romainvigier.MetadataCleaner
-    state: present
+    method: system
