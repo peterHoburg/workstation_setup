@@ -20,7 +20,6 @@
   tasks:
     - import_tasks: ./tasks/install_ansible_collections.yml
     - import_tasks: ./tasks/install_packages.yml
-    - import_tasks: ./tasks/install_vivaldi.yml
     - import_tasks: ./tasks/install_snaps.yml
     - import_tasks: ./tasks/install_flatpaks.yml
     - import_tasks: ./tasks/copy_configs.yml
