@@ -12,11 +12,13 @@
   become_user: "{{ main_user }}"
   community.general.flatpak:
     name:
-      - org.qbittorrent.qBittorrent
       - com.discordapp.Discord
+      - com.google.Chrome
       - fr.romainvigier.MetadataCleaner
+      - org.darktable.Darktable
+      - org.gnome.DejaDup
       - org.libreoffice.LibreOffice
       - org.mozilla.firefox
-      - org.gnome.DejaDup
+      - org.qbittorrent.qBittorrent
     state: present
     method: user

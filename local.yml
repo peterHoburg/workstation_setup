@@ -19,19 +19,25 @@
 
   tasks:
     - import_tasks: ./tasks/install_ansible_collections.yml
+
     - import_tasks: ./tasks/install_packages.yml
     - import_tasks: ./tasks/install_snaps.yml
     - import_tasks: ./tasks/install_flatpaks.yml
+
     - import_tasks: ./tasks/copy_configs.yml
-    - import_tasks: ./tasks/download_jetbrains_toolbox.yml
     - import_tasks: ./tasks/copy_ssh_conf_files.yml
+
+    - import_tasks: ./tasks/install_zoom.yml
+    - import_tasks: ./tasks/download_jetbrains_toolbox.yml
+
     - import_tasks: ./tasks/install_rust.yml
     - import_tasks: ./tasks/install_topgrade.yml
     - import_tasks: ./tasks/install_cargo_upgrade.yml
+
     - import_tasks: ./tasks/install_docker.yml
     - import_tasks: ./tasks/install_python_poetry.yml
     - import_tasks: ./tasks/install_aws_cli.yml
-    - import_tasks: ./tasks/install_zoom.yml
+
     - import_tasks: ./tasks/install_terraform.yml
     - import_tasks: ./tasks/install_boundary.yml
     - import_tasks: ./tasks/install_boundary_desktop.yml

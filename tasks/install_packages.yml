@@ -44,4 +44,5 @@
     name:
       - libreoffice*
       - firefox*
+      - google-chrome-*
     state: absent
