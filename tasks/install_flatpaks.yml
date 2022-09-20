@@ -20,5 +20,6 @@
       - org.libreoffice.LibreOffice
       - org.mozilla.firefox
       - org.qbittorrent.qBittorrent
+      - org.gnome.Boxes
     state: present
     method: user
